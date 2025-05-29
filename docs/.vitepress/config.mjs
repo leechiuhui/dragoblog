@@ -4,6 +4,9 @@ export default defineConfig({
   title: 'DragoBlog',
   description: '我的 VitePress Blog',
   
+  // GitHub Pages 部署設定
+  base: '/dragoblog/',
+  
   // 主題設定
   themeConfig: {
     // 導航欄
@@ -26,7 +29,7 @@ export default defineConfig({
     
     // 社交連結
     socialLinks: [
-      { icon: 'github', link: 'https://github.com' }
+      { icon: 'github', link: 'https://github.com/leechiuhui/dragoblog' }
     ],
     
     // 頁腳

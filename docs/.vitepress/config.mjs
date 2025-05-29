@@ -4,8 +4,8 @@ export default defineConfig({
   title: 'DragoBlog',
   description: '我的 VitePress Blog',
   
-  // 自定義網域設定 - 移除 base 路徑
-  // base: '/dragoblog/', // 使用自定義網域時不需要
+  // GitHub Pages 部署設定
+  base: '/dragoblog/',
   
   // 主題設定
   themeConfig: {

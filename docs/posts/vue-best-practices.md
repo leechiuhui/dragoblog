@@ -2,10 +2,12 @@
 title: Vue.js 最佳實踐
 date: 2024-01-04
 author: DragoBlog
+category: 技術筆記
 tags:
   - Vue.js
   - 前端
   - 最佳實踐
+  - 框架
 ---
 
 # Vue.js 最佳實踐

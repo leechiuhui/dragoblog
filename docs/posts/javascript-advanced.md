@@ -2,10 +2,12 @@
 title: JavaScript 進階技巧
 date: 2024-01-03
 author: DragoBlog
+category: 技術筆記
 tags:
   - JavaScript
   - 前端
   - 進階
+  - 程式設計
 ---
 
 # JavaScript 進階技巧

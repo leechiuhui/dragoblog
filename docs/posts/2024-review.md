@@ -2,10 +2,12 @@
 title: 2024 年度回顧
 date: 2024-12-31
 author: DragoBlog
+category: 生活分享
 tags:
   - 年度回顧
   - 生活分享
   - 總結
+  - 成長
 ---
 
 # 2024 年度回顧

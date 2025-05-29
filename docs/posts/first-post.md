@@ -2,9 +2,11 @@
 title: 我的第一篇文章
 date: 2024-01-01
 author: DragoBlog
+category: 開始使用
 tags:
   - 開始
   - VitePress
+  - 部落格
 ---
 
 # 我的第一篇文章

@@ -4,8 +4,8 @@ export default defineConfig({
   title: 'DragoBlog',
   description: '我的 VitePress Blog',
   
-  // GitHub Pages 部署設定
-  base: '/dragoblog/',
+  // GitHub Pages 部署設定 - 使用自定義域名時設為 '/'
+  base: '/',
   
   // 主題設定
   themeConfig: {

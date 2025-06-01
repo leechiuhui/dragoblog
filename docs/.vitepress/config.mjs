@@ -18,56 +18,25 @@ export default defineConfig({
       { text: '關於', link: '/about' }
     ],
     
-    // 側邊欄
-    sidebar: {
-      '/': [
-        {
-          text: '所有文章',
-          items: [
-            { text: '我的第一篇文章', link: '/posts/first-post' },
-            // { text: 'VitePress 使用心得', link: '/posts/vitepress-experience' },
-            // { text: 'JavaScript 進階技巧', link: '/posts/javascript-advanced' },
-            // { text: 'Vue.js 最佳實踐', link: '/posts/vue-best-practices' },
-            // { text: '2024 年度回顧', link: '/posts/2024-review' }
-          ]
-        }
-      ],
-      '/posts/': [
-        {
-          text: '所有文章',
-          items: [
-            { text: '我的第一篇文章', link: '/posts/first-post' },
-            { text: 'VitePress 使用心得', link: '/posts/vitepress-experience' },
-            { text: 'JavaScript 進階技巧', link: '/posts/javascript-advanced' },
-            { text: 'Vue.js 最佳實踐', link: '/posts/vue-best-practices' },
-            { text: '2024 年度回顧', link: '/posts/2024-review' }
-          ]
-        }
-      ],
-      '/categories/': [
-        {
-          text: '文章分類',
-          items: [
-            { text: '所有分類', link: '/categories/' },
-            { text: '每日紀錄', link: '/categories/daily-notes' },
-            { text: '每週紀錄', link: '/categories/weekly-notes' },
-            { text: '至青宇宙學校課程分享', link: '/categories/universe-school' },
-            { text: '生活分享', link: '/categories/life-sharing' }
-          ]
-        }
-      ],
-      '/tags/': [
-        {
-          text: '熱門標籤',
-          items: [
-            { text: '標籤雲', link: '/tags/' },
-            { text: 'VitePress', link: '/tags/vitepress' },
-            { text: 'JavaScript', link: '/tags/javascript' },
-            { text: 'Vue.js', link: '/tags/vue' },
-            { text: '前端', link: '/tags/frontend' }
-          ]
-        }
-      ]
+    // 統一側邊欄 - 只顯示文章列表
+    sidebar: [
+      {
+        text: '📖 所有文章',
+        collapsed: false,
+        items: [
+          // { text: '2024 年度回顧', link: '/posts/2024-review' },
+          // { text: 'Vue.js 最佳實踐', link: '/posts/vue-best-practices' },
+          // { text: 'JavaScript 進階技巧', link: '/posts/javascript-advanced' },
+          // { text: 'VitePress 使用心得', link: '/posts/vitepress-experience' },
+          { text: '我的第一篇文章', link: '/posts/first-post' }
+        ]
+      }
+    ],
+    
+    // 確保右側目錄正常顯示
+    outline: {
+      level: [2, 3],
+      label: '目錄'
     },
     
     // 社交連結

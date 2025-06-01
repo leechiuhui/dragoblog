@@ -74,26 +74,73 @@ function setupCategoryFilter() {
   freshCategoryTags.forEach(tag => {
     tag.addEventListener('click', function(e) {
       e.preventDefault();
-      console.log('Category clicked:', this.getAttribute('data-category'));
-      
-      // 移除所有 active 狀態
-      freshCategoryTags.forEach(t => t.classList.remove('active'));
-      // 添加當前點擊的 active 狀態
-      this.classList.add('active');
-      
       const selectedCategory = this.getAttribute('data-category');
+      console.log('Category clicked:', selectedCategory);
       
-      articleItems.forEach(item => {
-        if (selectedCategory === 'all' || item.getAttribute('data-category') === selectedCategory) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
+      // 更新 URL hash
+      if (selectedCategory === 'all') {
+        window.history.replaceState(null, null, window.location.pathname);
+      } else {
+        window.history.replaceState(null, null, '#' + selectedCategory);
+      }
+      
+      // 執行篩選
+      filterArticles(selectedCategory, freshCategoryTags, articleItems);
     });
   });
   
+  // 檢查 URL hash 並初始化篩選
+  const hash = window.location.hash.substring(1); // 移除 #
+  if (hash) {
+    filterArticles(hash, freshCategoryTags, articleItems);
+  }
+  
   return true;
+}
+
+// 篩選文章的函數
+function filterArticles(selectedCategory, categoryTags, articleItems) {
+  // 移除所有 active 狀態
+  categoryTags.forEach(t => t.classList.remove('active'));
+  
+  // 找到對應的標籤並設為 active
+  let activeTag = null;
+  categoryTags.forEach(tag => {
+    if (tag.getAttribute('data-category') === selectedCategory) {
+      tag.classList.add('active');
+      activeTag = tag;
+    }
+  });
+  
+  // 如果沒找到對應標籤，默認選中「全部文章」
+  if (!activeTag) {
+    categoryTags.forEach(tag => {
+      if (tag.getAttribute('data-category') === 'all') {
+        tag.classList.add('active');
+        selectedCategory = 'all';
+      }
+    });
+  }
+  
+  // 篩選文章
+  articleItems.forEach(item => {
+    if (selectedCategory === 'all' || item.getAttribute('data-category') === selectedCategory) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// 監聽 hash 變化
+function handleHashChange() {
+  const hash = window.location.hash.substring(1);
+  const categoryTags = document.querySelectorAll('.category-tag');
+  const articleItems = document.querySelectorAll('.article-item');
+  
+  if (categoryTags.length > 0 && articleItems.length > 0) {
+    filterArticles(hash || 'all', categoryTags, articleItems);
+  }
 }
 
 // 多種初始化方式確保功能可以正常運行
@@ -110,6 +157,9 @@ function setupCategoryFilter() {
 
   // 頁面完全載入後
   window.addEventListener('load', setupCategoryFilter);
+
+  // 監聽 hash 變化
+  window.addEventListener('hashchange', handleHashChange);
 
   // 使用 setTimeout 作為備用方案
   setTimeout(() => {
@@ -128,7 +178,10 @@ function setupCategoryFilter() {
   if (typeof window !== 'undefined' && window.addEventListener) {
     // 監聽 popstate 事件（瀏覽器前進後退）
     window.addEventListener('popstate', () => {
-      setTimeout(setupCategoryFilter, 100);
+      setTimeout(() => {
+        setupCategoryFilter();
+        handleHashChange();
+      }, 100);
     });
     
     // 監聽可能的路由變化
@@ -137,12 +190,18 @@ function setupCategoryFilter() {
     
     history.pushState = function() {
       originalPushState.apply(history, arguments);
-      setTimeout(setupCategoryFilter, 100);
+      setTimeout(() => {
+        setupCategoryFilter();
+        handleHashChange();
+      }, 100);
     };
     
     history.replaceState = function() {
       originalReplaceState.apply(history, arguments);
-      setTimeout(setupCategoryFilter, 100);
+      setTimeout(() => {
+        setupCategoryFilter();
+        handleHashChange();
+      }, 100);
     };
   }
 })();

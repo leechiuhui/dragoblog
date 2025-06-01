@@ -9,6 +9,32 @@ export default defineConfig({
   
   // 主題設定
   themeConfig: {
+    // 本地搜尋
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: '搜尋文章',
+                buttonAriaLabel: '搜尋文章'
+              },
+              modal: {
+                noResultsText: '無法找到相關結果',
+                resetButtonTitle: '清除查詢條件',
+                footer: {
+                  selectText: '選擇',
+                  navigateText: '切換',
+                  closeText: '關閉'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    
     // 導航欄
     nav: [
       { text: '首頁', link: '/' },

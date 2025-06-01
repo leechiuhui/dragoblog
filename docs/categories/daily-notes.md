@@ -3,15 +3,16 @@
 ## 所有分類（Categories）
 
 <div class="category-tags">
-  <a href="/categories/daily-notes" class="category-tag">每日紀錄</a>
-  <a href="/categories/weekly-notes" class="category-tag active">每週紀錄</a>
+  <a href="/categories/daily-notes" class="category-tag active">每日紀錄</a>
+  <a href="/categories/weekly-notes" class="category-tag">每週紀錄</a>
   <a href="/categories/universe-school" class="category-tag">至青宇宙學校課程分享</a>
   <a href="/categories/life-sharing" class="category-tag">生活分享</a>
 </div>
 
-## 「每週紀錄」分類下的文章
+## 「每日紀錄」分類下的文章
 
-- [VitePress 使用心得](/posts/vitepress-experience.md)
+- [JavaScript 進階技巧](/posts/javascript-advanced.md)
+- [Vue.js 最佳實踐](/posts/vue-best-practices.md)
 
 <style>
 .category-tags {

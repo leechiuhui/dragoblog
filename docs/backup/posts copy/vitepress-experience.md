@@ -2,7 +2,7 @@
 title: VitePress 使用心得
 date: 2024-01-02
 author: DragoBlog
-category: 技術分享
+category: 每週紀錄
 tags:
   - VitePress
   - Blog

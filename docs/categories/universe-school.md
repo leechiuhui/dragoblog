@@ -4,14 +4,14 @@
 
 <div class="category-tags">
   <a href="/categories/daily-notes" class="category-tag">每日紀錄</a>
-  <a href="/categories/weekly-notes" class="category-tag active">每週紀錄</a>
-  <a href="/categories/universe-school" class="category-tag">至青宇宙學校課程分享</a>
+  <a href="/categories/weekly-notes" class="category-tag">每週紀錄</a>
+  <a href="/categories/universe-school" class="category-tag active">至青宇宙學校課程分享</a>
   <a href="/categories/life-sharing" class="category-tag">生活分享</a>
 </div>
 
-## 「每週紀錄」分類下的文章
+## 「至青宇宙學校課程分享」分類下的文章
 
-- [VitePress 使用心得](/posts/vitepress-experience.md)
+- [我的第一篇文章](/posts/first-post.md)
 
 <style>
 .category-tags {

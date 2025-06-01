@@ -2,7 +2,7 @@
 title: JavaScript 進階技巧
 date: 2024-01-03
 author: DragoBlog
-category: 技術筆記
+category: 每日紀錄
 tags:
   - JavaScript
   - 前端

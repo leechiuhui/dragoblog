@@ -2,7 +2,7 @@
 title: Vue.js 最佳實踐
 date: 2024-01-04
 author: DragoBlog
-category: 技術筆記
+category: 每日紀錄
 tags:
   - Vue.js
   - 前端

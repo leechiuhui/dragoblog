@@ -11,8 +11,6 @@ tags:
 
 # 我的第一篇文章
 
-<PostMeta />
-
 歡迎來到我的 VitePress 部落格！
 
 ## 為什麼選擇 VitePress？

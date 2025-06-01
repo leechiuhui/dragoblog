@@ -1,22 +1,73 @@
-# 生活分享
+# 分類
 
-個人成長和生活感悟。
+## 所有分類（Categories）
 
-## 📚 所有文章
+<div class="category-tags">
+  <a href="/categories/daily-notes" class="category-tag">每日紀錄</a>
+  <a href="/categories/weekly-notes" class="category-tag">每週紀錄</a>
+  <a href="/categories/universe-school" class="category-tag">至青宇宙學校課程分享</a>
+  <a href="/categories/life-sharing" class="category-tag active">生活分享</a>
+</div>
 
-### [2024 年度回顧](/posts/2024-review.md)
-*發布於 2024-12-31*
+## 「生活分享」分類下的文章
 
-時間過得真快，2024 年即將結束。回顧這一年，有收穫也有挑戰，值得記錄和分享。
+- [2024 年度回顧](/posts/2024-review.md)
 
-**標籤：** `年度回顧` `生活分享` `總結` `成長`
+<style>
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
 
----
+.category-tag {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid #dee2e6;
+}
 
-## 🔖 相關標籤
+.category-tag:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
 
-- [年度回顧](/tags/yearly-review.md)
-- [成長](/tags/growth.md)
-- [總結](/tags/summary.md)
+.category-tag.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
 
-[← 返回所有分類](/categories/) 
+/* 深色模式 */
+.dark .category-tag {
+  background-color: var(--vp-c-bg-mute);
+  color: var(--vp-c-text-2);
+  border-color: var(--vp-c-divider);
+}
+
+.dark .category-tag:hover,
+.dark .category-tag.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .category-tags {
+    gap: 6px;
+  }
+  
+  .category-tag {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
+</style> 

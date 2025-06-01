@@ -1,3 +1,9 @@
+---
+outline: false
+prev: false
+next: false
+---
+
 # DragoBlog
 
 ## 最新文章
@@ -68,6 +74,15 @@ h3 + .article-tags + p {
 h3 + .article-tags + p + p {
   margin-top: 12px;
   line-height: 1.6;
+}
+
+/* 隱藏底部的 Next/Prev 導航 */
+.pager-link {
+  display: none !important;
+}
+
+.VPDocFooter {
+  display: none !important;
 }
 </style>
 

@@ -73,6 +73,7 @@ const formatDate = (dateString) => {
   font-size: 14px;
   font-weight: 500;
   display: inline-block;
+  text-decoration: none;
 }
 
 .tags {
@@ -89,6 +90,7 @@ const formatDate = (dateString) => {
   font-size: 14px;
   font-weight: 500;
   transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .tag:hover {

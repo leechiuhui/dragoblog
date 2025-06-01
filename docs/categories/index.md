@@ -196,7 +196,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
   background-color: #f8f9fa;
   color: #6c757d;
   padding: 6px 12px;
-  border-radius: 4px;
+  border-radius: 0;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -209,19 +209,21 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
+  text-decoration: none;
 }
 
 .category-tag.active {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
+  text-decoration: none;
 }
 
 .article-item {
   margin-bottom: 24px;
   padding: 16px;
   border: 1px solid #e1e5e9;
-  border-radius: 8px;
+  border-radius: 0;
   transition: all 0.2s ease;
 }
 

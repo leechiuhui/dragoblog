@@ -12,8 +12,8 @@
   <a href="#" class="tag-button" data-tag="programming">程式設計</a>
   <a href="#" class="tag-button" data-tag="advanced">進階</a>
   <a href="#" class="tag-button" data-tag="best-practices">最佳實踐</a>
-  <a href="#" class="tag-button" data-tag="experience">心得</a>
-  <a href="#" class="tag-button" data-tag="framework">框架</a>
+  <a href="#" class="tag-button" data-tag="experience">生命心得</a>
+  <!-- <a href="#" class="tag-button" data-tag="framework">框架</a> -->
   <a href="#" class="tag-button" data-tag="static-site">靜態網站</a>
   <a href="#" class="tag-button" data-tag="yearly-review">年度回顧</a>
   <a href="#" class="tag-button" data-tag="life-sharing">生活分享</a>
@@ -215,7 +215,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
   background-color: #f8f9fa;
   color: #6c757d;
   padding: 6px 12px;
-  border-radius: 16px;
+  border-radius: 0;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -228,19 +228,21 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
+  text-decoration: none;
 }
 
 .tag-button.active {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
+  text-decoration: none;
 }
 
 .article-item {
   margin-bottom: 24px;
   padding: 16px;
   border: 1px solid #e1e5e9;
-  border-radius: 8px;
+  border-radius: 0;
   transition: all 0.2s ease;
 }
 

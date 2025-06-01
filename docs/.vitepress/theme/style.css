@@ -1,5 +1,5 @@
 /* 調整左側邊欄寬度 */
-:root {
+/* :root {
   --vp-sidebar-width: 200px;
 }
 
@@ -11,4 +11,40 @@
   .VPDoc.has-sidebar .VPContent {
     margin-left: var(--vp-sidebar-width) !important;
   }
+} */
+
+/* 移除所有標籤和分類的底線和圓角 */
+.tag,
+.category,
+.category-tag,
+.tag-button,
+.post-meta .tag,
+.post-meta .category,
+.VPBadge,
+.vp-badge {
+  text-decoration: none !important;
+  border-radius: 0 !important;
+}
+
+.tag:hover,
+.category:hover,
+.category-tag:hover,
+.tag-button:hover,
+.post-meta .tag:hover,
+.post-meta .category:hover,
+.VPBadge:hover,
+.vp-badge:hover {
+  text-decoration: none !important;
+}
+
+/* 移除其他組件的圓角 */
+.vp-code-group,
+.vp-code-group .tabs,
+.vp-code-group .tab,
+.custom-block,
+.tip,
+.warning,
+.danger,
+.details {
+  border-radius: 0 !important;
 }

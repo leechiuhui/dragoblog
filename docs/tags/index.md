@@ -1,53 +1,346 @@
-# 標籤雲
+# 標籤
 
-按標籤瀏覽所有文章內容。
+## 所有標籤（Tags）
 
-## 🏷️ 所有標籤
-
-### 技術相關
-- [JavaScript](/tags/javascript.md) (1)
-- [Vue.js](/tags/vue.md) (1)
-- [VitePress](/tags/vitepress.md) (2)
-- [前端](/tags/frontend.md) (2)
-- [程式設計](/tags/programming.md) (1)
-- [框架](/tags/framework.md) (1)
-
-### 內容類型
-- [進階](/tags/advanced.md) (1)
-- [最佳實踐](/tags/best-practices.md) (1)
-- [心得](/tags/experience.md) (1)
-- [教學](/tags/tutorial.md) (1)
-
-### 平台工具
-- [部落格](/tags/blog.md) (2)
-- [靜態網站](/tags/static-site.md) (1)
-- [GitHub](/tags/github.md) (1)
-
-### 生活成長
-- [年度回顧](/tags/yearly-review.md) (1)
-- [生活分享](/tags/life-sharing.md) (1)
-- [總結](/tags/summary.md) (1)
-- [成長](/tags/growth.md) (1)
-
----
-
-## 📊 熱門標籤
-
-<div style="text-align: center; margin: 2em 0;">
-  <span style="font-size: 2em; margin: 0.5em; color: #42b883;">VitePress</span>
-  <span style="font-size: 1.8em; margin: 0.5em; color: #4fc08d;">前端</span>
-  <span style="font-size: 1.6em; margin: 0.5em; color: #35495e;">部落格</span>
-  <span style="font-size: 1.4em; margin: 0.5em; color: #2c3e50;">JavaScript</span>
-  <span style="font-size: 1.4em; margin: 0.5em; color: #34495e;">Vue.js</span>
-  <span style="font-size: 1.2em; margin: 0.5em; color: #7f8c8d;">程式設計</span>
+<div class="tag-buttons">
+  <a href="#" class="tag-button active" data-tag="all">全部文章</a>
+  <a href="#" class="tag-button" data-tag="vitepress">VitePress</a>
+  <a href="#" class="tag-button" data-tag="frontend">前端</a>
+  <a href="#" class="tag-button" data-tag="blog">部落格</a>
+  <a href="#" class="tag-button" data-tag="javascript">JavaScript</a>
+  <a href="#" class="tag-button" data-tag="vue">Vue.js</a>
+  <a href="#" class="tag-button" data-tag="programming">程式設計</a>
+  <a href="#" class="tag-button" data-tag="advanced">進階</a>
+  <a href="#" class="tag-button" data-tag="best-practices">最佳實踐</a>
+  <a href="#" class="tag-button" data-tag="experience">心得</a>
+  <a href="#" class="tag-button" data-tag="framework">框架</a>
+  <a href="#" class="tag-button" data-tag="static-site">靜態網站</a>
+  <a href="#" class="tag-button" data-tag="yearly-review">年度回顧</a>
+  <a href="#" class="tag-button" data-tag="life-sharing">生活分享</a>
+  <a href="#" class="tag-button" data-tag="summary">總結</a>
+  <a href="#" class="tag-button" data-tag="growth">成長</a>
 </div>
 
----
+<div id="articles-container">
+  
+  <div class="article-item" data-tags="yearly-review life-sharing summary growth">
+    <h3><a href="/posts/2024-review.md">2024 年度回顧</a></h3>
+    <p class="article-meta">2024-12-31 | 分類：生活分享</p>
+    <p class="article-excerpt">時間過得真快，2024 年即將結束。回顧這一年，有收穫也有挑戰，值得記錄和分享。</p>
+    <p class="article-tags"><strong>標籤：</strong> `年度回顧` `生活分享` `總結` `成長`</p>
+  </div>
 
-## 🔍 快速導航
+  <div class="article-item" data-tags="vue frontend best-practices framework">
+    <h3><a href="/posts/vue-best-practices.md">Vue.js 最佳實踐</a></h3>
+    <p class="article-meta">2024-01-04 | 分類：每日紀錄</p>
+    <p class="article-excerpt">分享 Vue.js 開發中的最佳實踐和經驗總結。</p>
+    <p class="article-tags"><strong>標籤：</strong> `Vue.js` `前端` `最佳實踐` `框架`</p>
+  </div>
 
-- [所有文章](/posts/)
-- [文章分類](/categories/)
-- [關於我](/about.md)
+  <div class="article-item" data-tags="javascript frontend advanced programming">
+    <h3><a href="/posts/javascript-advanced.md">JavaScript 進階技巧</a></h3>
+    <p class="article-meta">2024-01-03 | 分類：每日紀錄</p>
+    <p class="article-excerpt">分享一些實用的 JavaScript 進階技巧和最佳實踐。</p>
+    <p class="article-tags"><strong>標籤：</strong> `JavaScript` `前端` `進階` `程式設計`</p>
+  </div>
 
-> 💡 **提示：** 點擊任何標籤可以查看相關的所有文章。 
+  <div class="article-item" data-tags="vitepress blog experience static-site">
+    <h3><a href="/posts/vitepress-experience.md">VitePress 使用心得</a></h3>
+    <p class="article-meta">2024-01-02 | 分類：每週紀錄</p>
+    <p class="article-excerpt">經過一段時間使用 VitePress 建立部落格的心得分享。</p>
+    <p class="article-tags"><strong>標籤：</strong> `VitePress` `Blog` `心得` `靜態網站`</p>
+  </div>
+
+  <div class="article-item" data-tags="vitepress blog">
+    <h3><a href="/posts/first-post.md">我的第一篇文章</a></h3>
+    <p class="article-meta">2024-01-01 | 分類：至青宇宙學校課程分享</p>
+    <p class="article-excerpt">歡迎來到我的 VitePress 部落格！</p>
+    <p class="article-tags"><strong>標籤：</strong> `開始` `VitePress` `部落格`</p>
+  </div>
+
+</div>
+
+<script>
+// 全域函數來設置標籤篩選功能
+function setupTagFilter() {
+  const tagButtons = document.querySelectorAll('.tag-button');
+  const articleItems = document.querySelectorAll('.article-item');
+
+  console.log('Setting up tag filter. Tags:', tagButtons.length, 'Articles:', articleItems.length);
+
+  if (tagButtons.length === 0 || articleItems.length === 0) {
+    console.log('Elements not found, will retry...');
+    return false;
+  }
+
+  // 移除現有的事件監聽器（防止重複綁定）
+  tagButtons.forEach(button => {
+    const newButton = button.cloneNode(true);
+    button.parentNode.replaceChild(newButton, button);
+  });
+
+  // 重新獲取元素並添加事件監聽器
+  const freshTagButtons = document.querySelectorAll('.tag-button');
+  
+  freshTagButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const selectedTag = this.getAttribute('data-tag');
+      console.log('Tag clicked:', selectedTag);
+      
+      // 更新 URL hash
+      if (selectedTag === 'all') {
+        window.history.replaceState(null, null, window.location.pathname);
+      } else {
+        window.history.replaceState(null, null, '#' + selectedTag);
+      }
+      
+      // 執行篩選
+      filterArticlesByTag(selectedTag, freshTagButtons, articleItems);
+    });
+  });
+  
+  // 檢查 URL hash 並初始化篩選
+  const hash = window.location.hash.substring(1); // 移除 #
+  if (hash) {
+    filterArticlesByTag(hash, freshTagButtons, articleItems);
+  }
+  
+  return true;
+}
+
+// 根據標籤篩選文章的函數
+function filterArticlesByTag(selectedTag, tagButtons, articleItems) {
+  // 移除所有 active 狀態
+  tagButtons.forEach(button => button.classList.remove('active'));
+  
+  // 找到對應的標籤按鈕並設為 active
+  let activeButton = null;
+  tagButtons.forEach(button => {
+    if (button.getAttribute('data-tag') === selectedTag) {
+      button.classList.add('active');
+      activeButton = button;
+    }
+  });
+  
+  // 如果沒找到對應標籤，默認選中「全部文章」
+  if (!activeButton) {
+    tagButtons.forEach(button => {
+      if (button.getAttribute('data-tag') === 'all') {
+        button.classList.add('active');
+        selectedTag = 'all';
+      }
+    });
+  }
+  
+  // 篩選文章
+  articleItems.forEach(item => {
+    const articleTags = item.getAttribute('data-tags') || '';
+    if (selectedTag === 'all' || articleTags.includes(selectedTag)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// 監聽 hash 變化
+function handleTagHashChange() {
+  const hash = window.location.hash.substring(1);
+  const tagButtons = document.querySelectorAll('.tag-button');
+  const articleItems = document.querySelectorAll('.article-item');
+  
+  if (tagButtons.length > 0 && articleItems.length > 0) {
+    filterArticlesByTag(hash || 'all', tagButtons, articleItems);
+  }
+}
+
+// 多種初始化方式確保功能可以正常運行
+(function() {
+  // 立即嘗試初始化
+  if (document.readyState === 'complete') {
+    setupTagFilter();
+  }
+
+  // DOMContentLoaded 事件
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTagFilter);
+  }
+
+  // 頁面完全載入後
+  window.addEventListener('load', setupTagFilter);
+
+  // 監聽 hash 變化
+  window.addEventListener('hashchange', handleTagHashChange);
+
+  // 使用 setTimeout 作為備用方案
+  setTimeout(() => {
+    if (!setupTagFilter()) {
+      // 如果第一次失敗，再試一次
+      setTimeout(() => {
+        if (!setupTagFilter()) {
+          // 最後一次嘗試
+          setTimeout(setupTagFilter, 2000);
+        }
+      }, 1000);
+    }
+  }, 300);
+
+  // 監聽 VitePress 路由變化（如果存在）
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    // 監聽 popstate 事件（瀏覽器前進後退）
+    window.addEventListener('popstate', () => {
+      setTimeout(() => {
+        setupTagFilter();
+        handleTagHashChange();
+      }, 100);
+    });
+    
+    // 監聽可能的路由變化
+    const originalPushState = history.pushState;
+    const originalReplaceState = history.replaceState;
+    
+    history.pushState = function() {
+      originalPushState.apply(history, arguments);
+      setTimeout(() => {
+        setupTagFilter();
+        handleTagHashChange();
+      }, 100);
+    };
+    
+    history.replaceState = function() {
+      originalReplaceState.apply(history, arguments);
+      setTimeout(() => {
+        setupTagFilter();
+        handleTagHashChange();
+      }, 100);
+    };
+  }
+})();
+</script>
+
+<style>
+.tag-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.tag-button {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  padding: 6px 12px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid #dee2e6;
+  cursor: pointer;
+}
+
+.tag-button:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.tag-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.article-item {
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.article-item:hover {
+  border-color: #007bff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.article-item h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.article-item h3 a {
+  color: var(--vp-c-brand);
+  text-decoration: none;
+}
+
+.article-item h3 a:hover {
+  text-decoration: underline;
+}
+
+.article-meta {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0 0 8px 0;
+}
+
+.article-excerpt {
+  color: var(--vp-c-text-1);
+  line-height: 1.6;
+  margin: 0 0 8px 0;
+}
+
+.article-tags {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* 深色模式 */
+.dark .tag-button {
+  background-color: var(--vp-c-bg-mute);
+  color: var(--vp-c-text-2);
+  border-color: var(--vp-c-divider);
+}
+
+.dark .tag-button:hover,
+.dark .tag-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.dark .article-item {
+  border-color: var(--vp-c-divider);
+}
+
+.dark .article-item:hover {
+  border-color: #007bff;
+}
+
+.dark .article-meta,
+.dark .article-tags {
+  color: var(--vp-c-text-2);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .tag-buttons {
+    gap: 6px;
+  }
+  
+  .tag-button {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+  
+  .article-item {
+    padding: 12px;
+  }
+  
+  .article-item h3 {
+    font-size: 16px;
+  }
+}
+</style> 

@@ -23,7 +23,7 @@
 
 <div id="articles-container">
   
-  <div class="article-item" data-tags="vitepress blog">
+  <div class="article-item" data-tags="vitepress blog 開始 VitePress 部落格">
     <h3><a href="/posts/first-post.md">我的第一篇文章</a></h3>
     <p class="article-meta">2024-01-01 | 分類：至青宇宙學校課程分享</p>
     <p class="article-excerpt">歡迎來到我的 VitePress 部落格！</p>
@@ -35,6 +35,12 @@
 <script>
 // 檢查是否在瀏覽器環境中
 if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  // 獲取 URL 參數的函數
+  function getURLParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+  }
+
   // 全域函數來設置標籤篩選功能
   function setupTagFilter() {
     const tagButtons = document.querySelectorAll('.tag-button');
@@ -62,11 +68,11 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
         const selectedTag = this.getAttribute('data-tag');
         console.log('Tag clicked:', selectedTag);
         
-        // 更新 URL hash
+        // 更新 URL - 使用 query parameter 而不是 hash
         if (selectedTag === 'all') {
-          window.history.replaceState(null, null, window.location.pathname);
+          window.history.pushState(null, null, window.location.pathname);
         } else {
-          window.history.replaceState(null, null, '#' + selectedTag);
+          window.history.pushState(null, null, `${window.location.pathname}?tag=${encodeURIComponent(selectedTag)}`);
         }
         
         // 執行篩選
@@ -74,10 +80,14 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
       });
     });
     
-    // 檢查 URL hash 並初始化篩選
-    const hash = window.location.hash.substring(1); // 移除 #
-    if (hash) {
-      filterArticlesByTag(hash, freshTagButtons, articleItems);
+    // 檢查 URL parameter 或 hash 並初始化篩選
+    let initialTag = getURLParameter('tag'); // 優先使用 query parameter
+    if (!initialTag) {
+      initialTag = window.location.hash.substring(1); // 備用：使用 hash
+    }
+    
+    if (initialTag) {
+      filterArticlesByTag(initialTag, freshTagButtons, articleItems);
     }
     
     return true;
@@ -91,7 +101,10 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     // 找到對應的標籤按鈕並設為 active
     let activeButton = null;
     tagButtons.forEach(button => {
-      if (button.getAttribute('data-tag') === selectedTag) {
+      const buttonTag = button.getAttribute('data-tag');
+      if (buttonTag === selectedTag || 
+          (buttonTag === 'vitepress' && selectedTag === 'VitePress') ||
+          (buttonTag === 'blog' && selectedTag === '部落格')) {
         button.classList.add('active');
         activeButton = button;
       }
@@ -110,7 +123,11 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     // 篩選文章
     articleItems.forEach(item => {
       const articleTags = item.getAttribute('data-tags') || '';
-      if (selectedTag === 'all' || articleTags.includes(selectedTag)) {
+      if (selectedTag === 'all' || 
+          articleTags.includes(selectedTag.toLowerCase()) ||
+          (selectedTag === 'VitePress' && articleTags.includes('vitepress')) ||
+          (selectedTag === '部落格' && articleTags.includes('blog')) ||
+          (selectedTag === '開始' && articleTags.includes('start'))) {
         item.style.display = 'block';
       } else {
         item.style.display = 'none';
@@ -118,14 +135,14 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     });
   }
 
-  // 監聽 hash 變化
-  function handleTagHashChange() {
-    const hash = window.location.hash.substring(1);
+  // 監聽瀏覽器前進後退
+  function handlePopState() {
+    const tag = getURLParameter('tag') || window.location.hash.substring(1);
     const tagButtons = document.querySelectorAll('.tag-button');
     const articleItems = document.querySelectorAll('.article-item');
     
     if (tagButtons.length > 0 && articleItems.length > 0) {
-      filterArticlesByTag(hash || 'all', tagButtons, articleItems);
+      filterArticlesByTag(tag || 'all', tagButtons, articleItems);
     }
   }
 
@@ -144,8 +161,8 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     // 頁面完全載入後
     window.addEventListener('load', setupTagFilter);
 
-    // 監聽 hash 變化
-    window.addEventListener('hashchange', handleTagHashChange);
+    // 監聽瀏覽器前進後退
+    window.addEventListener('popstate', handlePopState);
 
     // 使用 setTimeout 作為備用方案
     setTimeout(() => {
@@ -162,14 +179,6 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
 
     // 監聽 VitePress 路由變化（如果存在）
     if (typeof window !== 'undefined' && window.addEventListener) {
-      // 監聽 popstate 事件（瀏覽器前進後退）
-      window.addEventListener('popstate', () => {
-        setTimeout(() => {
-          setupTagFilter();
-          handleTagHashChange();
-        }, 100);
-      });
-      
       // 監聽可能的路由變化
       const originalPushState = history.pushState;
       const originalReplaceState = history.replaceState;
@@ -178,7 +187,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
         originalPushState.apply(history, arguments);
         setTimeout(() => {
           setupTagFilter();
-          handleTagHashChange();
+          handlePopState();
         }, 100);
       };
       
@@ -186,7 +195,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
         originalReplaceState.apply(history, arguments);
         setTimeout(() => {
           setupTagFilter();
-          handleTagHashChange();
+          handlePopState();
         }, 100);
       };
     }

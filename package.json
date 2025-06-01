@@ -9,10 +9,16 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
-  "keywords": ["blog", "vitepress"],
+  "keywords": [
+    "blog",
+    "vitepress"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "vitepress": "^1.0.0"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
   }
-} 
+}

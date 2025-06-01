@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { generateSidebar } from './utils/generateSidebar.js'
 
 export default defineConfig({
   title: 'DragoBlog',
@@ -44,20 +45,8 @@ export default defineConfig({
       { text: '關於', link: '/about' }
     ],
     
-    // 統一側邊欄 - 只顯示文章列表
-    sidebar: [
-      {
-        text: '📖 所有文章',
-        collapsed: false,
-        items: [
-          // { text: '2024 年度回顧', link: '/posts/2024-review' },
-          // { text: 'Vue.js 最佳實踐', link: '/posts/vue-best-practices' },
-          // { text: 'JavaScript 進階技巧', link: '/posts/javascript-advanced' },
-          // { text: 'VitePress 使用心得', link: '/posts/vitepress-experience' },
-          { text: '2025-06-01', link: '/posts/20250601-daily-note' }
-        ]
-      }
-    ],
+    // 動態生成的側邊欄
+    sidebar: generateSidebar(),
     
     // 確保右側目錄正常顯示
     outline: {

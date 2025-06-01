@@ -1,8 +1,9 @@
 ---
 title: 20250601紀錄
-date: 2024-01-01
+date: 2025-06-01
 author: DragoBlog
 category: 每日紀錄
+description: 歡迎來到我的 VitePress 部落格！這是我的第一篇文章，包含了日常記錄、思考和下一步計劃。
 tags:
   - 部落格
 ---

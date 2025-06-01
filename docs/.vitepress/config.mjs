@@ -54,7 +54,7 @@ export default defineConfig({
           // { text: 'Vue.js 最佳實踐', link: '/posts/vue-best-practices' },
           // { text: 'JavaScript 進階技巧', link: '/posts/javascript-advanced' },
           // { text: 'VitePress 使用心得', link: '/posts/vitepress-experience' },
-          { text: '我的第一篇文章', link: '/posts/first-post' }
+          { text: '2025-06-01', link: '/posts/20250601-daily-note' }
         ]
       }
     ],

@@ -13,7 +13,7 @@
 <div id="articles-container">
   
   <div class="article-item" data-category="universe-school">
-    <h3><a href="/posts/first-post.md">我的第一篇文章</a></h3>
+    <h3><a href="/posts/20250601-daily-note.md">我的第一篇文章</a></h3>
     <p class="article-meta">2024-01-01 | 分類：至青宇宙學校課程分享</p>
     <p class="article-excerpt">歡迎來到我的 VitePress 部落格！</p>
     <p class="article-tags"><strong>標籤：</strong> `開始` `VitePress` `部落格`</p>

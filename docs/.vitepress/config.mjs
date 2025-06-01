@@ -13,7 +13,7 @@ export default defineConfig({
     nav: [
       { text: '首頁', link: '/' },
       // { text: '文章', link: '/posts/' },
-      { text: '分類', link: '/categories.html' },
+      { text: '分類', link: '/categories/' },
       { text: '標籤', link: '/tags/' },
       { text: '關於', link: '/about' }
     ],

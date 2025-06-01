@@ -1,1 +1,14 @@
-/* 自定義主題樣式 */ 
+/* 調整左側邊欄寬度 */
+:root {
+  --vp-sidebar-width: 200px;
+}
+
+@media (min-width: 960px) {
+  .VPSidebar {
+    width: var(--vp-sidebar-width) !important;
+  }
+  
+  .VPDoc.has-sidebar .VPContent {
+    margin-left: var(--vp-sidebar-width) !important;
+  }
+}

@@ -33,5 +33,12 @@ tags:
 
 
 ## 下一步
-0. 
+1. 中華電信數據機，韌體如何更新，以及網路線要連結的那個port檢查
+2. 老師中華電信會員帳號申請，以及查詢申請的是哪一個網速產品
+3. anydedk遠端軟體是否可以選用固定port
+4. teams 設定，是否可以讓第三方錄影
+5. teams premium和 teams365 business basic彼此是如何搭配
+6. 查詢網路上對於teams會議使用，是否也有視訊畫面或pot延遲的討論
+7. 有一些使用者名稱，在大多數的windows電腦上顯示不出來問題（有些Mac電腦也是看不到）
+8. WiFi 視訊電鈴，有人經過時會傳遞視頻到手機。不知是否會影響網路流量https://zh-tw.manuals.plus/ezviz/db2c-wire-free-video-doorbell-manual
 

@@ -1,5 +1,5 @@
 ---
-title: 20250603 成功提交[妄念追蹤器]App到App Store審核中
+title: 20250605 成功提交[妄念追蹤器]App到App Store審核中
 date: 2025-06-05
 author: DragoBlog
 category: 每日紀錄

@@ -1,86 +1,89 @@
 <template>
-  <ClientOnly>
-    <div class="password-protected">
-      <!-- 密碼輸入界面 -->
-      <div v-if="!isAuthenticated" class="password-form">
-        <div class="password-container">
-          <h2>🔒 此文章需要密碼</h2>
-          <p class="password-hint">請輸入密碼以查看內容</p>
-          
-          <div class="input-group">
-            <input
-              v-model="inputPassword"
-              type="password"
-              placeholder="請輸入密碼"
-              class="password-input"
-              @keyup.enter="checkPassword"
-              @input="clearError"
-            />
-            <button @click="checkPassword" class="password-button">
-              確認
-            </button>
-          </div>
-          
-          <div v-if="showError" class="error-message">
-            ❌ 密碼錯誤，請重新輸入
-          </div>
+  <div class="password-protected">
+    <!-- 密碼輸入界面 -->
+    <div v-if="!isAuthenticated" class="password-form">
+      <div class="password-container">
+        <h2>🔒 此文章需要密碼</h2>
+        <p class="password-hint">請輸入密碼以查看內容</p>
+        
+        <div class="input-group">
+          <input
+            v-model="inputPassword"
+            type="password"
+            placeholder="請輸入密碼"
+            class="password-input"
+            @keyup.enter="checkPassword"
+            @input="clearError"
+          />
+          <button @click="checkPassword" class="password-button">
+            確認
+          </button>
         </div>
-      </div>
-      
-      <!-- 文章內容 -->
-      <div v-else class="protected-content">
-        <div class="unlock-notice">
-          <span>🔓 內容已解鎖</span>
-          <button @click="lockContent" class="lock-button">重新鎖定</button>
+        
+        <div v-if="showError" class="error-message">
+          ❌ 密碼錯誤，請重新輸入
         </div>
-        <slot />
+        
+        <div v-if="debugMode" class="debug-info">
+          <small>調試信息：需要密碼 "{{ requiredPassword }}"</small>
+        </div>
       </div>
     </div>
-    <template #fallback>
-      <div class="loading-password">
-        <div style="text-align: center; padding: 2rem; background: #f7fafc; border-radius: 8px;">
-          🔒 正在載入密碼保護功能...
-        </div>
+    
+    <!-- 文章內容 -->
+    <div v-else class="protected-content">
+      <div class="unlock-notice">
+        <span>🔓 內容已解鎖</span>
+        <button @click="lockContent" class="lock-button">重新鎖定</button>
       </div>
-    </template>
-  </ClientOnly>
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useData } from 'vitepress'
 
-const { page } = useData()
+const { frontmatter } = useData()
 
 const inputPassword = ref('')
 const isAuthenticated = ref(false)
 const showError = ref(false)
+const debugMode = ref(false) // 調試模式
 
-// 從frontmatter獲取密碼，添加安全檢查
-const requiredPassword = page.value?.frontmatter?.password || ''
+// 從frontmatter獲取密碼
+const requiredPassword = computed(() => {
+  return frontmatter.value?.password || ''
+})
 
 // 生成唯一的存儲key
-const storageKey = `auth_${page.value?.relativePath || 'unknown'}`
+const storageKey = computed(() => {
+  return `auth_${frontmatter.value?.title || 'unknown'}`
+})
 
 onMounted(() => {
-  nextTick(() => {
-    // 檢查是否已經驗證過
-    if (typeof window !== 'undefined' && window.localStorage) {
-      const stored = localStorage.getItem(storageKey)
-      if (stored === requiredPassword && requiredPassword) {
-        isAuthenticated.value = true
-      }
+  // 檢查調試模式
+  if (window.location.search.includes('debug=1')) {
+    debugMode.value = true
+  }
+  
+  // 檢查是否已經驗證過
+  if (typeof window !== 'undefined' && window.localStorage && requiredPassword.value) {
+    const stored = localStorage.getItem(storageKey.value)
+    if (stored === requiredPassword.value) {
+      isAuthenticated.value = true
     }
-  })
+  }
 })
 
 const checkPassword = () => {
-  if (inputPassword.value === requiredPassword && requiredPassword) {
+  if (inputPassword.value === requiredPassword.value && requiredPassword.value) {
     isAuthenticated.value = true
     showError.value = false
     // 保存驗證狀態
     if (typeof window !== 'undefined' && window.localStorage) {
-      localStorage.setItem(storageKey, requiredPassword)
+      localStorage.setItem(storageKey.value, requiredPassword.value)
     }
   } else {
     showError.value = true
@@ -96,7 +99,7 @@ const lockContent = () => {
   isAuthenticated.value = false
   inputPassword.value = ''
   if (typeof window !== 'undefined' && window.localStorage) {
-    localStorage.removeItem(storageKey)
+    localStorage.removeItem(storageKey.value)
   }
 }
 </script>
@@ -176,6 +179,15 @@ const lockContent = () => {
   color: #e53e3e;
   font-size: 0.9rem;
   margin-top: 0.5rem;
+}
+
+.debug-info {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+  color: #856404;
 }
 
 .unlock-notice {

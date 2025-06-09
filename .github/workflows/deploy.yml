@@ -32,7 +32,7 @@ jobs:
         with:
           fetch-depth: 0 # Not needed if lastUpdated is not enabled
       
-      # 新增：從私有倉庫拉取文章內容
+      # 新增：從私有倉庫拉取文章內容 - 移到最前面
       - name: Checkout posts from private repo
         uses: actions/checkout@v4
         with:
@@ -40,12 +40,14 @@ jobs:
           token: ${{ secrets.POSTS_ACCESS_TOKEN }}   # 需要設定Personal Access Token
           path: posts-temp
       
-      # 新增：複製文章到正確位置
+      # 新增：複製文章到正確位置 - 緊接著執行
       - name: Copy posts to docs directory
         run: |
           mkdir -p docs/posts
           cp -r posts-temp/* docs/posts/
           rm -rf posts-temp
+          echo "文章複製完成，列出檔案："
+          ls -la docs/posts/
       
       # - uses: pnpm/action-setup@v3 # Uncomment this if you're using pnpm
       #   with:

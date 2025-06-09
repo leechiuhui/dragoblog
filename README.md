@@ -26,12 +26,12 @@ npm run docs:preview
 - GitHub Pages
 - Cloudflare Pages
 
-## 技術棧
+## 技術
 
 - VitePress
 - Vue.js
 - Markdown 
 
 ＃ 新功能
-- 使用私有倉庫 + GitHub Actions 自動同步達成 讓 posts下markdown的文章，用 ignore的功能，不要上傳到 github上？但是使用者透過瀏覽器可以訪問。
-- 密鑰文章 testing5
+- 20250609 使用私有倉庫 + GitHub Actions 自動同步達成 讓 posts下的markdown文章，用 ignore的功能，不要上傳到 github上。但是使用者透過瀏覽器可以訪問。也就是將文章放在私有倉庫。
+- 20250609 新增密鑰文章功能。

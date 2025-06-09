@@ -17,7 +17,9 @@ export default createContentLoader('posts/*.md', {
           url: url.replace('.html', ''),
           date: frontmatter.date,
           category: frontmatter.category,
-          excerpt: frontmatter.description || ''
+          excerpt: frontmatter.description || '',
+          isProtected: !!frontmatter.password,
+          password: frontmatter.password
         })
       })
     })

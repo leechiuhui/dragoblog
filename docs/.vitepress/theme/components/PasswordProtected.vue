@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import { useData } from 'vitepress'
 
 const { page } = useData()
@@ -47,26 +47,32 @@ const inputPassword = ref('')
 const isAuthenticated = ref(false)
 const showError = ref(false)
 
-// 從frontmatter獲取密碼
-const requiredPassword = page.value.frontmatter.password
+// 從frontmatter獲取密碼，添加安全檢查
+const requiredPassword = page.value?.frontmatter?.password || ''
 
 // 生成唯一的存儲key
-const storageKey = `auth_${page.value.relativePath}`
+const storageKey = `auth_${page.value?.relativePath || 'unknown'}`
 
 onMounted(() => {
-  // 檢查是否已經驗證過
-  const stored = localStorage.getItem(storageKey)
-  if (stored === requiredPassword) {
-    isAuthenticated.value = true
-  }
+  nextTick(() => {
+    // 檢查是否已經驗證過
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const stored = localStorage.getItem(storageKey)
+      if (stored === requiredPassword && requiredPassword) {
+        isAuthenticated.value = true
+      }
+    }
+  })
 })
 
 const checkPassword = () => {
-  if (inputPassword.value === requiredPassword) {
+  if (inputPassword.value === requiredPassword && requiredPassword) {
     isAuthenticated.value = true
     showError.value = false
     // 保存驗證狀態
-    localStorage.setItem(storageKey, requiredPassword)
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem(storageKey, requiredPassword)
+    }
   } else {
     showError.value = true
     inputPassword.value = ''
@@ -80,7 +86,9 @@ const clearError = () => {
 const lockContent = () => {
   isAuthenticated.value = false
   inputPassword.value = ''
-  localStorage.removeItem(storageKey)
+  if (typeof window !== 'undefined' && window.localStorage) {
+    localStorage.removeItem(storageKey)
+  }
 }
 </script>
 

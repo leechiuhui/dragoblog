@@ -14,5 +14,8 @@ export default {
     app.component('CategoryList', CategoryList)
     app.component('TagList', TagList)
     app.component('PasswordProtected', PasswordProtected)
+  },
+  setup() {
+    // 確保在服務器端也能正確處理
   }
 } 

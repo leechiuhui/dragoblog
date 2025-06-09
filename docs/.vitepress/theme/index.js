@@ -3,6 +3,7 @@ import PostMeta from './components/PostMeta.vue'
 import PostList from './components/PostList.vue'
 import CategoryList from './components/CategoryList.vue'
 import TagList from './components/TagList.vue'
+import PasswordProtected from './components/PasswordProtected.vue'
 import './style.css'
 
 export default {
@@ -12,5 +13,6 @@ export default {
     app.component('PostList', PostList)
     app.component('CategoryList', CategoryList)
     app.component('TagList', TagList)
+    app.component('PasswordProtected', PasswordProtected)
   }
 } 

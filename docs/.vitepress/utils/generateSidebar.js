@@ -24,11 +24,16 @@ export function generateSidebar() {
       const content = fs.readFileSync(filePath, 'utf-8')
       const { data: frontmatter } = matter(content)
       
+      // 檢查是否需要密碼保護
+      const isProtected = !!frontmatter.password
+      const titlePrefix = isProtected ? '🔒 ' : ''
+      
       return {
         filename: file,
-        title: frontmatter.title || file.replace('.md', ''),
+        title: titlePrefix + (frontmatter.title || file.replace('.md', '')),
         date: frontmatter.date || new Date().toISOString().split('T')[0],
-        url: `/posts/${file.replace('.md', '')}`
+        url: `/posts/${file.replace('.md', '')}`,
+        isProtected
       }
     })
     .sort((a, b) => new Date(b.date) - new Date(a.date)) // 按日期排序，最新的在前

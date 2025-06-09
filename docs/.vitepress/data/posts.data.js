@@ -14,7 +14,9 @@ export default createContentLoader('posts/*.md', {
         category: frontmatter.category,
         tags: frontmatter.tags || [],
         excerpt: excerpt || frontmatter.description || '',
-        author: frontmatter.author
+        author: frontmatter.author,
+        isProtected: !!frontmatter.password, // 檢查是否有密碼保護
+        password: frontmatter.password // 用於調試（生產環境可移除）
       }))
       .sort((a, b) => new Date(b.date) - new Date(a.date))
   }

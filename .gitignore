@@ -4,3 +4,15 @@ docs/.vitepress/cache/
 .DS_Store
 *.log
 .env 
+
+# 忽略所有文章內容，但保留目錄結構
+docs/posts/*.md
+docs/posts/**/*.md
+# 保留README或示例文件（如果需要）
+!docs/posts/README.md
+!docs/posts/example.md
+
+# 忽略特定私密文章
+docs/posts/*-private.md
+# 或者忽略整個私密資料夾
+docs/posts/private/ 

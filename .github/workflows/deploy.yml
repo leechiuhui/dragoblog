@@ -31,6 +31,22 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Not needed if lastUpdated is not enabled
+      
+      # 新增：從私有倉庫拉取文章內容
+      - name: Checkout posts from private repo
+        uses: actions/checkout@v4
+        with:
+          repository: leechiuhui/dragoblog-posts  # 您的私有倉庫名稱
+          token: ${{ secrets.POSTS_ACCESS_TOKEN }}   # 需要設定Personal Access Token
+          path: posts-temp
+      
+      # 新增：複製文章到正確位置
+      - name: Copy posts to docs directory
+        run: |
+          mkdir -p docs/posts
+          cp -r posts-temp/* docs/posts/
+          rm -rf posts-temp
+      
       # - uses: pnpm/action-setup@v3 # Uncomment this if you're using pnpm
       #   with:
       #     version: 8

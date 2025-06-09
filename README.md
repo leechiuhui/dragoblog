@@ -34,4 +34,4 @@ npm run docs:preview
 
 ＃ 新功能
 - 使用私有倉庫 + GitHub Actions 自動同步達成 讓 posts下markdown的文章，用 ignore的功能，不要上傳到 github上？但是使用者透過瀏覽器可以訪問。
-- 密鑰文章 testing
+- 密鑰文章 testing2

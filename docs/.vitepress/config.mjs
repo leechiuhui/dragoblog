@@ -68,6 +68,16 @@ export default defineConfig({
   
   // Markdown 設定
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    // 啟用Vue組件在Markdown中的使用
+    config: (md) => {
+      // 確保Markdown支持Vue組件
+    }
+  },
+  
+  // Vue配置
+  vue: {
+    // 確保在生產環境下正確處理組件
+    reactivityTransform: true
   }
 }) 

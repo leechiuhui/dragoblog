@@ -4,6 +4,7 @@ import PostList from './components/PostList.vue'
 import CategoryList from './components/CategoryList.vue'
 import TagList from './components/TagList.vue'
 import PasswordProtected from './components/PasswordProtected.vue'
+import TestComponent from './components/TestComponent.vue'
 import './style.css'
 
 export default {
@@ -14,6 +15,7 @@ export default {
     app.component('CategoryList', CategoryList)
     app.component('TagList', TagList)
     app.component('PasswordProtected', PasswordProtected)
+    app.component('TestComponent', TestComponent)
   },
   setup() {
     // 確保在服務器端也能正確處理

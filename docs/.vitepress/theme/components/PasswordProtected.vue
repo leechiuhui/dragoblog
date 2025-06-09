@@ -1,40 +1,49 @@
 <template>
-  <div class="password-protected">
-    <!-- 密碼輸入界面 -->
-    <div v-if="!isAuthenticated" class="password-form">
-      <div class="password-container">
-        <h2>🔒 此文章需要密碼</h2>
-        <p class="password-hint">請輸入密碼以查看內容</p>
-        
-        <div class="input-group">
-          <input
-            v-model="inputPassword"
-            type="password"
-            placeholder="請輸入密碼"
-            class="password-input"
-            @keyup.enter="checkPassword"
-            @input="clearError"
-          />
-          <button @click="checkPassword" class="password-button">
-            確認
-          </button>
-        </div>
-        
-        <div v-if="showError" class="error-message">
-          ❌ 密碼錯誤，請重新輸入
+  <ClientOnly>
+    <div class="password-protected">
+      <!-- 密碼輸入界面 -->
+      <div v-if="!isAuthenticated" class="password-form">
+        <div class="password-container">
+          <h2>🔒 此文章需要密碼</h2>
+          <p class="password-hint">請輸入密碼以查看內容</p>
+          
+          <div class="input-group">
+            <input
+              v-model="inputPassword"
+              type="password"
+              placeholder="請輸入密碼"
+              class="password-input"
+              @keyup.enter="checkPassword"
+              @input="clearError"
+            />
+            <button @click="checkPassword" class="password-button">
+              確認
+            </button>
+          </div>
+          
+          <div v-if="showError" class="error-message">
+            ❌ 密碼錯誤，請重新輸入
+          </div>
         </div>
       </div>
-    </div>
-    
-    <!-- 文章內容 -->
-    <div v-else class="protected-content">
-      <div class="unlock-notice">
-        <span>🔓 內容已解鎖</span>
-        <button @click="lockContent" class="lock-button">重新鎖定</button>
+      
+      <!-- 文章內容 -->
+      <div v-else class="protected-content">
+        <div class="unlock-notice">
+          <span>🔓 內容已解鎖</span>
+          <button @click="lockContent" class="lock-button">重新鎖定</button>
+        </div>
+        <slot />
       </div>
-      <slot />
     </div>
-  </div>
+    <template #fallback>
+      <div class="loading-password">
+        <div style="text-align: center; padding: 2rem; background: #f7fafc; border-radius: 8px;">
+          🔒 正在載入密碼保護功能...
+        </div>
+      </div>
+    </template>
+  </ClientOnly>
 </template>
 
 <script setup>
